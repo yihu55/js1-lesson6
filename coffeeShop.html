@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coffeeShop</title>
+</head>
+
+<body>
+    <h1>Welcome to our Coffee Shop</h1>
+    <label for="numberOfCoffees">Order coffee cups</label>
+    <input id="numberOfCoffees">
+    <button onclick="onBuyButtonClick()">Buy!</button>
+    <p id="totalspent"></p>
+    <p id="isEligableForDiscount"></p>
+    <script>
+        class Customer {
+            constructor() {
+                this.transactions = []
+                this.discountThreshold = 1000
+            }
+            addTransaction(amount) {
+                this.transactions.push(amount)
+            }
+            getTotalSpent() {
+                let sum = 0
+                this.transactions.forEach(transaction => {
+                    sum += transaction
+                })
+                return sum
+            }
+            isEligableForDiscount() {
+                return this.getTotalSpent() >= this.discountThreshold
+
+            }
+        }
+        const customer = new Customer()
+
+        function onBuyButtonClick() {
+            const input = document.getElementById("numberOfCoffees")
+            const pricePerCup = 50
+
+            const transactionValue = pricePerCup * input.value
+            customer.addTransaction(transactionValue)
+            console.log(customer.transactions)
+
+            const totalSpentParagraph = document.getElementById("totalspent")
+            totalSpentParagraph.innerHTML = `You have spent: ${customer.getTotalSpent()}`
+
+            const isEligableForDiscount = document.getElementById("isEligableForDiscount")
+            isEligableForDiscount.innerHTML = customer.isEligableForDiscount()
+
+        }
+    </script>
+
+</body>
+
+</html>
