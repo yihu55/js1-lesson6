@@ -1,3 +1,4 @@
+//class
 class Animal {
     //name och legs är parametrar som skickar in när skapas instans
     constructor(name, legs) {
