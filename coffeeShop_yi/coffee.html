@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoffeeshopEgenTest</title>
+</head>
+
+<body onload="options()">
+    <label for="coffee">Välj Kaffesort</label>
+    <select name="coffee" id="coffee">
+    <!--option value="0">Brygg kaffe - 20kr</option>
+    <option value="1">Cappuccino - 30kr</option>
+    <option value="2">Latte - 40kr</option-->
+</select>
+    <label for="amountOfCups">Antal</label>
+    <input type="number" min="1" name="amountOfCups" value="1" id="amountOfCups">
+    <button id="onBuyButton" onclick="onBuyButton()">Köp</button>
+    <p id="currentTotalSum"></p>
+
+    <p id="memberstatus"></p>
+    <p id="errorTextMessage"></p>
+    <hr>
+    <h1 id="transactionHeader">Du har inga transaktioner</h1>
+
+    <p id="transaction"></p>
+    <script src=coffee.js></script>
+
+</body>
+
+</html>
